@@ -15,7 +15,7 @@
                     @endif
 
                     <button onclick="location.href='{{ url('/users') }}';" class="btn btn-dark btn-sq-responsive">Pengguna</button>
-                    <button class="btn btn-dark btn-sq-responsive">Produk</button>
+                    <button onclick="location.href='{{ url('/products') }}';"  class="btn btn-dark btn-sq-responsive">Produk</button>
                 </div>
             </div>
         </div>

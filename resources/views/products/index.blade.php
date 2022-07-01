@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Pengguna</div>
+                <div class="card-header">Produk</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -22,31 +22,33 @@
                         </div>
                     @endif
 
-                    <a href="{{ url('/users/add') }}" class="btn btn-sm btn-primary" style="margin-bottom: 20px;">Tambah</a>
+                    <a href="{{ url('/products/add') }}" class="btn btn-sm btn-primary" style="margin-bottom: 20px;">Tambah</a>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col"></th>
                                     <th scope="col">Nama</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">TTL</th>
-                                    <th scope="col">Jenis Kelamin</th>
+                                    <th scope="col">Gambar</th>
+                                    <th scope="col">Deskripsi</th>
+                                    <th scope="col">Harga beli</th>
+                                    <th scope="col">Harga jual</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $no = 1; ?>
-                                @foreach ($users as $u)
+                                @foreach ($products as $u)
                                     <tr>
                                         <th scope="row">{{ $no }}</th>
                                         <td>{{ $u->name }}</td>
-                                        <td>{{ $u->email }}</td>
-                                        <td>{{ $u->place_of_birth }}, {{ $u->date_of_birth }}</td>
-                                        <td>{{ $u->gender == "male" ? "Laki-laki" : "Perempuan" }}</td>
+                                        <td>{{ $u->picture}}</td>
+                                        <td>{{ $u->description}}</td>
+                                        <td>{{ $u->purchase_price}}</td>
+                                        <td>{{ $u->selling_price}}</td>
                                         <td>
-                                            <a href="{{ url('users',$u->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
-                                            <a href="{{ url('users/delete',$u->id) }}" onclick="return confirm('Yakin akan menghapus akun dengan email {{ $u->email }}?');" class="btn btn-sm btn-outline-danger">Hapus</a>
+                                            <a href="{{ url('products',$u->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
+                                            <a href="{{ url('products/delete',$u->id) }}" onclick="return confirm('Yakin akan menghapus produk dengan nama{{ $u->name}}?');" class="btn btn-sm btn-outline-danger">Hapus</a>
                                         </td>
                                     </tr>
                                     <?php $no++; ?>
